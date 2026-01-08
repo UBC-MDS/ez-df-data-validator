@@ -10,7 +10,8 @@ If you don't plan to publish to PyPI, you can remove them.*
 
 ## Summary
 
-DSCI_524_group23 is a project that (describe what it does here).
+DSCI_524_group23 is a project that provides basic, but essential data cleaning functionality for ML workflows. 
+This package provides a lightweight and user friendly toolkit for common data cleaning tasks in Python. It is designed to streamline data preprocessing by offering clear, reusable functions for detecting duplicates, standardizing column names, and handling missing values. The goal is to reduce repetitive code and make data preparation more efficient and reproducible.
 
 ## Get started
 
@@ -36,12 +37,13 @@ These are the functions in this package:
 - rename_feature_headers()
 
 - find_duplicates()
+Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
 
 - handle_missing()
 
-## Fit of this package
+## Position of this package in the Python Ecosystem
 
-blah blah
+This package is intended to complement existing data science libraries rather than replace them. Core functionality overlaps with well established tools such as [pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org/), which provide operations for data manipulation and cleaning. However, this package focuses on wrapping common data cleaning patterns into simple functions that are easy to use. Similar preprocessing utilities also exist in [scikit-learn](https://scikit-learn.org/).
 
 ## Copyright
 
