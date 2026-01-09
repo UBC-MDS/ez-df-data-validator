@@ -40,3 +40,22 @@ class SchemaStandardizer:
             A DataFrame with standardized snake_case column names.
         """
         pass
+
+    def drop_duplicate_columns(self, data):
+        """
+        Remove columns with duplicate header names.
+
+        This function identifies columns that share the exact same name (often resultant
+        from the standardization process) and removes all but the first occurrence.
+
+        Parameters
+        ----------
+        data : pandas.DataFrame
+            The input DataFrame to check for duplicate column headers.
+
+        Returns
+        -------
+        pandas.DataFrame
+            A DataFrame with duplicate columns removed.
+        """
+        pass
