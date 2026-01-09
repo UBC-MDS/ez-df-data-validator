@@ -78,3 +78,24 @@ class SchemaStandardizer:
             A DataFrame with constant columns removed.
         """
         pass
+
+    def run_standardizer(self, data):
+        """
+        Execute the full sanitization suite on a DataFrame.
+
+        This method runs the sanitization functions in the following specific order:
+        1. Standardize Headers (normalizing names).
+        2. Drop Duplicate Columns (handling collisions from standardization).
+        3. Drop Constant Columns (removing zero-variance features).
+
+        Parameters
+        ----------
+        data : pandas.DataFrame
+            The raw input DataFrame.
+
+        Returns
+        -------
+        pandas.DataFrame
+            The fully sanitized and standardized DataFrame.
+        """
+        pass
