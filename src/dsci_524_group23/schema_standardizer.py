@@ -59,3 +59,22 @@ class SchemaStandardizer:
             A DataFrame with duplicate columns removed.
         """
         pass
+
+    def drop_constant_columns(self, data):
+        """
+        Remove columns that contain a single unique value across all rows.
+
+        This function identifies features with zero variance (constants) and drops
+        them to reduce noise and dimensionality.
+
+        Parameters
+        ----------
+        data : pandas.DataFrame
+            The input DataFrame to be filtered.
+
+        Returns
+        -------
+        pandas.DataFrame
+            A DataFrame with constant columns removed.
+        """
+        pass
