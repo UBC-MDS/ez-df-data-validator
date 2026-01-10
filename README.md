@@ -34,20 +34,23 @@ To use dsci_524_group23 in your code:
 
 These are the functions in this package:
 
-- standardize_headers()
-Standardize DataFrame column headers to a clean snake_case format.
+- `standardize_headers()`
+    > Standardize DataFrame column headers to a clean snake_case format.
 
-- drop_duplicate_columns()
-Remove columns with duplicate header names.
+- `drop_duplicate_columns()`
+    > Remove columns with duplicate header names.
 
-- drop_constant_columns()
-Remove columns that contain a single unique value across all rows.
+- `drop_constant_columns()`
+    > Remove columns that contain a single unique value across all rows.
 
-- find_duplicates() Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
+- `find_duplicates()` 
+    > Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
 
-- handle_missing() Handles missing data in input Pandas dataframe so as to speed up the data science pipeline.
+- `handle_missing()` 
+    > Handles missing data in input Pandas dataframe so as to speed up the data science pipeline.
 
-- missing_summary() Summarizes missing values per column (count and proportion) to help assess data completeness.
+- `missing_summary()` 
+    > Summarizes missing values per column (count and proportion) to help assess data completeness.
 
 
 ## Position of this package in the Python Ecosystem
@@ -56,7 +59,7 @@ This package is intended to complement existing data science libraries rather th
 
 ## Copyright
 
-- Copyright © 2026 Nishanth Kumarasamy.
+- Copyright © 2026 Nishanth Kumarasamy etc.
 - Free software distributed under the [MIT License](./LICENSE).
 
 ## Contributors
