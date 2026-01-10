@@ -36,9 +36,11 @@ These are the functions in this package:
 
 - rename_feature_headers()
 
-- find_duplicates() Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
+- find_duplicates() 
+- Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
 
-- handle_missing() Handles missing data in input Pandas dataframe so to speed up the data science pipeline.
+- handle_missing() 
+- Handles missing data in input Pandas dataframe so to speed up the data science pipeline.
 
 ## Position of this package in the Python Ecosystem
 
