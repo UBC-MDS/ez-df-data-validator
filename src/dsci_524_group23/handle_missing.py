@@ -1,6 +1,6 @@
 import pandas as pd
 
-def handel_missing(df, strategy='drop', columns=None):
+def handle_missing(df, strategy='drop', columns=None):
     """
     Handles missing data in a pandas DataFrame.
 
@@ -14,6 +14,7 @@ def handel_missing(df, strategy='drop', columns=None):
 
     strategy : str, default 'drop'
         The strategy to use for handling missing values.
+        Permissible values: mean, median, max, min, mode, drop
 
     columns : list, default None
         Columns where the missing values are to be handled.
