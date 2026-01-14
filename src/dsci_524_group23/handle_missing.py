@@ -32,4 +32,37 @@ def handle_missing(df, strategy='drop', columns=None):
     ValueError
         If `strategy` is not a permitted strategy.
     """
-    pass
+
+    if not isinstance(strategy, str):
+        raise TypeError('Strategy must be a string.')
+
+    if strategy not in ['mean', 'median', 'max', 'min', 'mode', 'drop']:
+        raise ValueError('Strategy must be permitted')
+
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError('df must be a pandas DataFrame.')
+
+    if not isinstance(columns, list) and columns is not None:
+        raise TypeError('columns must be a list.')
+
+    for col in columns:
+        if col not in df.columns:
+            raise ValueError(f'Column {col} not in dataframe')
+
+        if strategy == 'drop':
+            df[col] = df[col].dropna()
+
+        if strategy == 'mean':
+            df[col] = df[col].fillna(df[col].mean())
+
+        if strategy == 'median':
+            df[col] = df[col].fillna(df[col].median())
+
+        if strategy == 'max':
+            df[col] = df[col].fillna(df[col].max())
+
+        if strategy == 'min':
+            df[col] = df[col].fillna(df[col].min())
+
+        if strategy == 'mode':
+            df[col] = df[col].fillna(df[col].mode())
