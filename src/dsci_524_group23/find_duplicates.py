@@ -58,4 +58,28 @@ def find_duplicates(data, subset=None, keep="first"):
     0  1  3
     1  1  3
     """
-    pass
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError("data must be a pandas DataFrame")
+
+    if subset is not None:
+        if not isinstance(subset, (list, tuple)):
+            raise TypeError("subset must be a list of column names")
+
+        if not all(isinstance(col, str) for col in subset):
+            raise TypeError("All elements in subset must be strings")
+
+        if len(subset) == 0:
+            raise ValueError("subset cannot be empty")
+
+        missing_cols = [col for col in subset if col not in data.columns]
+
+        if missing_cols:
+            raise ValueError(f"Columns not found in data: {missing_cols}")
+
+    if keep not in ("first", "last", False):
+        raise ValueError("keep must be one of {'first', 'last', False}")
+
+    duplicated_mask = data.duplicated(subset=subset, keep=keep)
+    duplicates_df = data[duplicated_mask].copy()
+
+    return duplicates_df
