@@ -1,51 +1,91 @@
-import numpy as np
+import pandas as pd
+import pytest
 
 from dsci_524_group23.find_duplicates import find_duplicates
 
 
 def test_find_duplicates_success():
-    """
-    Test that find_duplicates works as expected.
-    """
     df = pd.DataFrame({"A": [1, 1, 2], "B": [3, 3, 4]})
 
     out = find_duplicates(df)
     expected_out = pd.DataFrame({"A": [1], "B": [3]})
-    assert out == expected_out, f"Expected {expected_out} but got {out}"
+
+    pd.testing.assert_frame_equal(out, expected_out)
 
 
 def test_find_duplicates_data_type_error():
-    """
-    Test that find_duplicates throws TypeError when data is not a df.
-    """
-    df = 5
-    assertRaises(TypeError, find_duplicates(df))
+    with pytest.raises(TypeError):
+        find_duplicates(5)
 
 
 def test_find_duplicates_with_empty_df():
-    """
-    Test that find_duplicates works with an empty df.
-    """
     df = pd.DataFrame()
 
     out = find_duplicates(df)
     expected_out = pd.DataFrame()
-    assert out == expected_out, f"Expected {expected_out} but got {out}"
+
+    pd.testing.assert_frame_equal(out, expected_out)
 
 
 def test_find_duplicates_keep_value_error():
-    """
-    Test that find_duplicates throws ValueError when keep is not a valid entry.
-    """
-    keep = "name"
-    assertRaises(TypeError, find_duplicates(df, keep=keep))
+    df = pd.DataFrame({"A": [1, 1], "B": [2, 2]})
+
+    with pytest.raises(ValueError):
+        find_duplicates(df, keep="name")
 
 
-def test_find_duplicates_subset_value_error():
-    """
-    Test that find_duplicates throws ValueError when subset is not a valid entry.
-    """
+def test_find_duplicates_subset_missing_column():
+    df = pd.DataFrame({"A": [1, 1], "B": [2, 2]})
 
-    df = pd.DataFrame({"A": [1, 1, 2], "B": [3, 3, 4]})
+    with pytest.raises(ValueError):
+        find_duplicates(df, subset=["C"])
 
-    assertRaises(TypeError, find_duplicates(df, subset="C"))
+
+def test_subset_not_list_type_error():
+    df = pd.DataFrame({"A": [1, 1]})
+
+    with pytest.raises(TypeError):
+        find_duplicates(df, subset="A")
+
+
+def test_empty_subset_value_error():
+    df = pd.DataFrame({"A": [1, 1]})
+
+    with pytest.raises(ValueError):
+        find_duplicates(df, subset=[])
+
+
+def test_keep_false_returns_all_duplicates():
+    df = pd.DataFrame({"A": [1, 1, 1], "B": [2, 2, 2]})
+
+    out = find_duplicates(df, keep=False)
+    expected = pd.DataFrame({"A": [1, 1, 1], "B": [2, 2, 2]})
+
+    pd.testing.assert_frame_equal(out, expected)
+
+
+def test_keep_last():
+    df = pd.DataFrame({"A": [1, 1, 1], "B": [2, 2, 2]})
+
+    out = find_duplicates(df, keep="last")
+    expected = pd.DataFrame({"A": [1, 1], "B": [2, 2]})
+
+    pd.testing.assert_frame_equal(out, expected)
+
+
+def test_no_duplicates_returns_empty_df():
+    df = pd.DataFrame({"A": [1, 2, 3]})
+
+    out = find_duplicates(df)
+    expected = df.iloc[0:0]
+
+    pd.testing.assert_frame_equal(out, expected)
+
+
+def test_nan_duplicates():
+    df = pd.DataFrame({"A": [1, 1, np.nan, np.nan]})
+
+    out = find_duplicates(df, keep=False)
+    expected = df
+
+    pd.testing.assert_frame_equal(out, expected)
