@@ -39,7 +39,7 @@ def test_handle_missing():
     except AssertionError:
         print("Test 'mode' failed.")
 
-    # --- Test 3: Strategy 'drop' (Known Failure in current code) ---
+    # --- Test 3: Strategy 'drop' ---
     # Expected: Row 2 should be removed entirely
     df_drop = df.copy()
     res_drop = handle_missing(df_drop, strategy='drop')
@@ -65,7 +65,13 @@ def test_handle_missing():
     except TypeError:
         print("Test 'invalid dtype error' passed.")
 
-
-# To run the test explicitly
-if __name__ == "__main__":
-    test_handle_missing()
+    # Test invalid input type in arg
+    df_type = df.copy()
+    try:
+        handle_missing(df_type, strategy='mean', columns=5)
+    except TypeError:
+        print("Test 'invalid input type error' passed.")
+    try:
+        handle_missing(df_type, strategy=4)
+    except TypeError:
+        print("Test 'invalid input type error' passed.")
