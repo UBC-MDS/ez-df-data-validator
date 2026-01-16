@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from pandas.testing import assert_frame_equal
 from dsci_524_group23.handle_missing import handle_missing
+import pytest
 
 
 def test_handle_missing():
