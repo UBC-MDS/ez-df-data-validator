@@ -64,7 +64,7 @@ def handle_missing(df, strategy='drop', columns=None):
         if df[col].isna().sum() == 0:
             continue
 
-        if df[col].dtype in ['int', 'float']:
+        if pd.api.types.is_numeric_dtype(df[col]):
             if strategy == 'mean':
                 df[col] = df[col].fillna(df[col].mean())
 
@@ -83,7 +83,7 @@ def handle_missing(df, strategy='drop', columns=None):
             else:
                 raise TypeError(f'Strategy {strategy} cannot be used for dtype of column {col}.')
 
-        elif df[col].dtype in ['object', 'category', 'bool']:
+        elif pd.api.types.is_object_dtype(df[col]):
             if strategy == 'mode':
                 if df[col].mode().shape[0] == 1:
                     df[col] = df[col].fillna(df[col].mode())
