@@ -37,7 +37,7 @@ def handle_missing(df, strategy='drop', columns=None):
         raise TypeError('Strategy must be a string.')
 
     if strategy not in ['mean', 'median', 'max', 'min', 'mode', 'drop']:
-        raise ValueError('Strategy must be permitted')
+        raise ValueError('Strategy must be permitted.')
 
     if not isinstance(df, pd.DataFrame):
         raise TypeError('df must be a pandas DataFrame.')
@@ -50,7 +50,10 @@ def handle_missing(df, strategy='drop', columns=None):
 
     for col in columns:
         if col not in df.columns:
-            raise ValueError(f'Column {col} not in dataframe')
+            raise ValueError(f'Column {col} not in dataframe.')
+
+        if df[col].isna().sum() == df[col].shape[0]:
+            raise ValueError(f'Column {col} only contains NaN.')
 
         if df[col].dtype not in ['object', 'category', 'bool', 'int', 'float', 'str']:
             raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
