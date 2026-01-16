@@ -58,8 +58,12 @@ def handle_missing(df, strategy='drop', columns=None):
         if df[col].dtype not in ['object', 'category', 'bool', 'int', 'float', 'str']:
             raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
 
+        if df[col].isna().sum() == 0:
+            continue
+
         if strategy == 'drop':
             df = df.dropna(subset=[col], inplace=True)
+            continue
 
         if df[col].dtype in ['int', 'float']:
             if strategy == 'mean':
