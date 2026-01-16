@@ -45,24 +45,35 @@ def handle_missing(df, strategy='drop', columns=None):
     if not isinstance(columns, list) and columns is not None:
         raise TypeError('columns must be a list.')
 
+    if columns is None:
+        columns = [None]
+
     for col in columns:
         if col not in df.columns:
             raise ValueError(f'Column {col} not in dataframe')
 
+        if df[col].dtype not in ['object', 'category', 'bool', 'int', 'float', 'str']:
+            raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
+
         if strategy == 'drop':
             df[col] = df[col].dropna()
 
-        if strategy == 'mean':
-            df[col] = df[col].fillna(df[col].mean())
+        if df[col].dtype in ['int', 'float']:
+            if strategy == 'mean':
+                df[col] = df[col].fillna(df[col].mean())
 
-        if strategy == 'median':
-            df[col] = df[col].fillna(df[col].median())
+            if strategy == 'median':
+                df[col] = df[col].fillna(df[col].median())
 
-        if strategy == 'max':
-            df[col] = df[col].fillna(df[col].max())
+            if strategy == 'max':
+                df[col] = df[col].fillna(df[col].max())
 
-        if strategy == 'min':
-            df[col] = df[col].fillna(df[col].min())
+            if strategy == 'min':
+                df[col] = df[col].fillna(df[col].min())
 
-        if strategy == 'mode':
-            df[col] = df[col].fillna(df[col].mode())
+            if strategy == 'mode':
+                df[col] = df[col].fillna(df[col].mode())
+
+        if df[col].dtype in ['object', 'category', 'bool']:
+            if strategy == 'mode':
+                df[col] = df[col].fillna(df[col].mode())
