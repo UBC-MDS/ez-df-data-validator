@@ -71,20 +71,23 @@ def handle_missing(df, strategy='drop', columns=None):
             if strategy == 'mean':
                 df[col] = df[col].fillna(df[col].mean())
 
-            if strategy == 'median':
+            elif strategy == 'median':
                 df[col] = df[col].fillna(df[col].median())
 
-            if strategy == 'max':
+            elif strategy == 'max':
                 df[col] = df[col].fillna(df[col].max())
 
-            if strategy == 'min':
+            elif strategy == 'min':
                 df[col] = df[col].fillna(df[col].min())
 
-            if strategy == 'mode':
+            elif strategy == 'mode':
                 df[col] = df[col].fillna(df[col].mode())
 
-        if df[col].dtype in ['object', 'category', 'bool']:
+        elif df[col].dtype in ['object', 'category', 'bool']:
             if strategy == 'mode':
-                df[col] = df[col].fillna(df[col].mode())
+                if df[col].mode().shape[0] == 1:
+                    df[col] = df[col].fillna(df[col].mode())
+                else:
+                    df[col] = df[col].fillna(df[col].mode().iloc[0])
 
     return df
