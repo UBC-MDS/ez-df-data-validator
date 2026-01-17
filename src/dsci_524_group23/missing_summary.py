@@ -1,51 +1,46 @@
 import pandas as pd
 
 
-def missing_summary(df: pd.DataFrame) -> pd.DataFrame:
+def missing_summary(data):
     """
-    Summarize missing values in a DataFrame.
+    Generate a summary of missing values in a dataset.
+
+    This function specifies an interface for computing the number and
+    proportion of missing values for each column in the input dataset.
+    It is intended to help users assess data completeness prior to
+    further cleaning steps.
 
     Parameters
     ----------
-    df : pandas.DataFrame
-        Input DataFrame.
+    data : pandas.DataFrame
+        Input dataset to be analyzed.
 
     Returns
     -------
     pandas.DataFrame
-        A DataFrame with one row per column and the following columns:
-        - "column": original column name
-        - "missing_count": number of missing values (NaN/None)
-        - "missing_pct": percentage of missing values (0 to 100)
-
-        The result is sorted by "missing_count" (descending), then "column" (ascending).
+        A summary table containing the count and percentage of missing
+        values for each column.
 
     Raises
     ------
-    TypeError
-        If df is not a pandas DataFrame.
+    ValueError
+        If the input data is None or empty.
     """
-    if not isinstance(df, pd.DataFrame):
-        raise TypeError("df must be a pandas DataFrame")
+    if data is None:
+        raise ValueError("`data` cannot be None.")
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError("`data` must be a pandas DataFrame.")
+    if data.empty:
+        raise ValueError("`data` cannot be empty.")
 
-    total_rows = len(df)
-
-    missing_count = df.isna().sum()
-
-    if total_rows == 0:
-        missing_pct = missing_count.astype(float) * 0.0
-    else:
-        missing_pct = (missing_count / total_rows) * 100.0
+    missing_count = data.isna().sum()
+    missing_pct = missing_count / len(data)
 
     out = pd.DataFrame(
         {
-            "column": missing_count.index.astype(str),
-            "missing_count": missing_count.values.astype(int),
-            "missing_pct": missing_pct.values.astype(float),
+            "missing_count": missing_count,
+            "missing_pct": missing_pct,
         }
     )
-
-    out = out.sort_values(by=["missing_count", "column"], ascending=[False, True]).reset_index(
-        drop=True
-    )
+    out.index.name = "column"
     return out
