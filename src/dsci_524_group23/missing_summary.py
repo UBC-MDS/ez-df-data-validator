@@ -25,6 +25,8 @@ def missing_summary(data):
     ------
     ValueError
         If the input data is None or empty.
+    TypeError
+        If the input data is not a pandas DataFrame.
     """
     if data is None:
         raise ValueError("`data` cannot be None.")
