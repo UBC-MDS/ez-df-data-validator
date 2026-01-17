@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def missing_summary(data):
     """
     Generate a summary of missing values in a dataset.
@@ -22,5 +25,24 @@ def missing_summary(data):
     ------
     ValueError
         If the input data is None or empty.
+    TypeError
+        If the input data is not a pandas DataFrame.
     """
-    pass
+    if data is None:
+        raise ValueError("`data` cannot be None.")
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError("`data` must be a pandas DataFrame.")
+    if data.empty:
+        raise ValueError("`data` cannot be empty.")
+
+    missing_count = data.isna().sum()
+    missing_pct = missing_count / len(data)
+
+    out = pd.DataFrame(
+        {
+            "missing_count": missing_count,
+            "missing_pct": missing_pct,
+        }
+    )
+    out.index.name = "column"
+    return out

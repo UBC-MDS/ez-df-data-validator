@@ -53,6 +53,9 @@ These are the functions in this package:
     > Summarizes missing values per column (count and proportion) to help assess data completeness.
 
 
+- missing_summary()
+
+
 ## Position of this package in the Python Ecosystem
 
 This package is intended to complement existing data science libraries rather than replace them. Core functionality overlaps with well established tools such as [pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org/), which provide operations for data manipulation and cleaning. However, this package focuses on wrapping common data cleaning patterns into simple functions that are easy to use. Similar preprocessing utilities also exist in [scikit-learn](https://scikit-learn.org/).
