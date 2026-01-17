@@ -2,7 +2,29 @@ import pandas as pd
 import re
 
 def standardize_schema(data):
+    """
+    Sanitize and standardize a DataFrames structure.
 
+    This function performs a series of cleaning steps:
+    1. Standardizes column headers (snake_case, no punctuation/replace with underscore).
+    2. Removes columns that result in duplicate names (keeping the first).
+    3. Removes columns containing a single unique value (constants).
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        The raw input DataFrame to be standardized.
+
+    Returns
+    -------
+    pandas.DataFrame
+        The fully sanitized DataFrame.
+
+    Raises
+    ------
+    TypeError
+        If the input `data` is not a pandas DataFrame.
+    """
     # Defensive check: Input type
     if not isinstance(data, pd.DataFrame):
         raise TypeError("Input must be a pandas DataFrame")
