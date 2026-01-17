@@ -20,3 +20,14 @@ def test_standardize_schema_non_string_headers():
     expected_out = pd.DataFrame({'0': [1, 2], '1': [3, 4]})  
     pd.testing.assert_frame_equal(out, expected_out)
     
+def test_standardize_schema_success():
+    df_input = pd.DataFrame({
+        'First Name': ['Alice', 'Bob', 'Charlie'],
+        'first_name': [1, 2, 3], # Duplicate collision
+        'Age (Years)': [25, 30, 35],
+        'Country': ['US', 'US', 'US'],
+        'Salary/in/USD': [50000, 60000, 70000]})
+    out = standardize_schema(df_input)
+    
+    assert 'first_name' in out.columns
+    assert out['first_name'].iloc[0] == 'Alice'

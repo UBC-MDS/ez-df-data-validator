@@ -23,4 +23,8 @@ def standardize_schema(data):
         new_columns.append(col_str)
 
     df.columns = new_columns
+
+    # 2. Drop Duplicate Columns
+    df = df.loc[:, ~df.columns.duplicated()]
+    
     return df
