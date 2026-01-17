@@ -26,5 +26,8 @@ def standardize_schema(data):
 
     # 2. Drop Duplicate Columns
     df = df.loc[:, ~df.columns.duplicated()]
-    
+
+    # 3. Drop Constant Columns
+    df = df.loc[:, df.nunique(dropna=False) > 1]
+
     return df

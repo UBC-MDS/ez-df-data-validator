@@ -1,4 +1,5 @@
 import pytest
+import numpy as np
 import pandas as pd
 from dsci_524_group23.schema_standardizer import standardize_schema
 
@@ -31,3 +32,16 @@ def test_standardize_schema_success():
     
     assert 'first_name' in out.columns
     assert out['first_name'].iloc[0] == 'Alice'
+
+def test_standardize_schema_all_constant_columns():
+    df_all_const = pd.DataFrame({'A': [1, 1], 'B': ['x', 'x']})
+    out = standardize_schema(df_all_const)
+    # Result should be empty DataFrame as all columns are constant
+    expected_out = pd.DataFrame(index=[0, 1])
+    pd.testing.assert_frame_equal(out, expected_out)
+
+def test_standardize_schema_constant_with_nan():
+    df = pd.DataFrame({'A': [1, 2],  'B': [np.nan, np.nan]})
+    out = standardize_schema(df)
+    expected_out = pd.DataFrame({'a': [1, 2]})
+    pd.testing.assert_frame_equal(out, expected_out)
