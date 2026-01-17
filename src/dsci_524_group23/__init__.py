@@ -22,8 +22,11 @@
 # SOFTWARE.
 
 """
-Add a docstring here for the init module.
+DSCI_524_group23
 
-This might include a very brief description of the package,
-its purpose, and any important notes.
+A lightweight Python package providing essential data cleaning
+utilities for machine learning workflows.
 """
+
+from .find_duplicates import find_duplicates
+from .missing_summary import missing_summary
