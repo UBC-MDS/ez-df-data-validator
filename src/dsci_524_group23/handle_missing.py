@@ -14,10 +14,12 @@ def handle_missing(df, strategy='drop', columns=None):
 
     strategy : str, default 'drop'
         The strategy to use for handling missing values.
-        Permissible values: mean, median, max, min, mode, drop
+        Permissible values (numeric): mean, median, max, min, mode, drop
+        Permissible values (else): mode, drop
 
     columns : list, default None
         Columns where the missing values are to be handled.
+        Default handles all columns.
 
     Returns
     -------
@@ -28,9 +30,34 @@ def handle_missing(df, strategy='drop', columns=None):
     ------
     TypeError
         If `df` is not a pandas DataFrame.
+        If `strategy` is not a string.
+        If `columns` is not a list or None.
+        If `strategy` cannot be used for dtype of column.
+        If dtype of column is not designed to be handled.
 
     ValueError
-        If `strategy` is not a permitted strategy.
+        If `strategy` is not permitted.
+        If column is not in df.columns.
+        If column only contains NaN.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> import pandas as pd
+    >>>df = pd.DataFrame({
+    ...     "A": [1, 1, 2],
+    ...     "B": [np.nan, 3, 4]
+    ... })
+    >>> handle_missing(df)
+       A  B
+    1  1  3
+    2  2  4
+
+    >>> handle_missing(df, strategy='mean')
+       A  B
+    0  1  3.5
+    1  1  3.0
+    2  2  4.0
     """
 
     if not isinstance(df, pd.DataFrame):
