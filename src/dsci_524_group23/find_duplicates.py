@@ -30,7 +30,8 @@ def find_duplicates(data, subset=None, keep="first"):
     -------
     pandas.DataFrame
         A new DataFrame containing only the rows identified as
-        duplicates. If no duplicate rows are found, an empty DataFrame
+        duplicates, with the index reset to a default RangeIndex.
+        If no duplicate rows are found, an empty DataFrame
         with the same columns as `data` is returned.
 
     Raises
