@@ -16,10 +16,13 @@ def standardize_schema(data):
 
     # 1. Standardize Headers
     new_columns = []
-    for col in df.columns:
+    for i, col in enumerate(df.columns):
         col_str = str(col).lower()
-        col_str = col_str.replace(' ', '_')
-        col_str = re.sub(r'[^\w_]', '', col_str)
+        col_str = re.sub(r'[^a-z0-9]', '_', col_str)
+        col_str = re.sub(r'_+', '_', col_str)
+        col_str = col_str.strip('_')
+        if not col_str:
+            col_str = f"untitled_{i}"
         new_columns.append(col_str)
 
     df.columns = new_columns

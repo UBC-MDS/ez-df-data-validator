@@ -11,13 +11,12 @@ def test_standardize_schema_empty_df():
     df_empty = pd.DataFrame()
     out = standardize_schema(df_empty)
     expected_out = pd.DataFrame()
-    
     pd.testing.assert_frame_equal(out, expected_out)
 
 def test_standardize_schema_non_string_headers():
     df_int_headers = pd.DataFrame({0: [1, 2], 1: [3, 4]})
     out = standardize_schema(df_int_headers)
-    
+
     expected_out = pd.DataFrame({'0': [1, 2], '1': [3, 4]})  
     pd.testing.assert_frame_equal(out, expected_out)
     
@@ -27,17 +26,23 @@ def test_standardize_schema_success():
         'first_name': [1, 2, 3], # Duplicate collision
         'Age (Years)': [25, 30, 35],
         'Country': ['US', 'US', 'US'],
-        'Salary/in/USD': [50000, 60000, 70000]})
+        'Salary/in/USD': [50000, 60000, 70000],
+        '__Weird__Header__': [1, 2, 3]})
     out = standardize_schema(df_input)
     
-    assert 'first_name' in out.columns
-    assert out['first_name'].iloc[0] == 'Alice'
+    expected_out = pd.DataFrame({
+        'first_name': ['Alice', 'Bob', 'Charlie'],
+        'age_years': [25, 30, 35],
+        'salary_in_usd': [50000, 60000, 70000],
+        'weird_header': [1, 2, 3] })
+    
+    pd.testing.assert_frame_equal(out, expected_out)
 
 def test_standardize_schema_all_constant_columns():
     df_all_const = pd.DataFrame({'A': [1, 1], 'B': ['x', 'x']})
     out = standardize_schema(df_all_const)
-    # Result should be empty DataFrame as all columns are constant
-    expected_out = pd.DataFrame(index=[0, 1])
+    
+    expected_out = pd.DataFrame(index=[0, 1], columns=pd.Index([], dtype='object'))
     pd.testing.assert_frame_equal(out, expected_out)
 
 def test_standardize_schema_constant_with_nan():
@@ -45,3 +50,4 @@ def test_standardize_schema_constant_with_nan():
     out = standardize_schema(df)
     expected_out = pd.DataFrame({'a': [1, 2]})
     pd.testing.assert_frame_equal(out, expected_out)
+    
