@@ -110,7 +110,7 @@ def handle_missing(df, strategy='drop', columns=None):
             else:
                 raise TypeError(f'Strategy {strategy} cannot be used for dtype of column {col}.')
 
-        elif pd.api.types.is_object_dtype(df[col]):
+        elif pd.api.types.is_object_dtype(df[col]) or pd.api.types.is_string_dtype(df[col]):
             if strategy == 'mode':
                     df[col] = df[col].fillna(df[col].mode()[0])
             else:
