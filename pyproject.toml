@@ -49,6 +49,7 @@ Download = "https://pypi.org/project/dsci_524_group23/#files"
 dev = [
     "hatch",
     "pre-commit",
+    "ruff"
 ]
 
 docs = [
