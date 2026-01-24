@@ -1,4 +1,4 @@
-name: dsci_524_group23
+name: ez_df_data_validator
 channels:
   - conda-forge
   - defaults

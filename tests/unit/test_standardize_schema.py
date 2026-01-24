@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 import pandas as pd
-from dsci_524_group23.schema_standardizer import standardize_schema
+from ez_df_data_validator.schema_standardizer import standardize_schema
 
 
 def test_standardize_schema_invalid_input_type():

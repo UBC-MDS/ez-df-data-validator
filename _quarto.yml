@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 quartodoc:
-  package: dsci_524_group23
+  package: ez_df_data_validator
   sections:
     - title: Functions
       desc: API Reference
@@ -14,7 +14,7 @@ quartodoc:
         - missing_summary
 
 website:
-  title: "dsci_524_group23"
+  title: "ez_df_data_validator"
   navbar:
     left:
       - text: "Reference"

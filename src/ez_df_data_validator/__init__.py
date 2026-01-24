@@ -22,7 +22,7 @@
 # SOFTWARE.
 
 """
-DSCI_524_group23
+ez_df_data_validator
 
 A lightweight Python package providing essential data cleaning
 utilities for machine learning workflows.

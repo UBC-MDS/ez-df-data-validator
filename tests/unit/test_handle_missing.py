@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from pandas.testing import assert_frame_equal
-from dsci_524_group23.handle_missing import handle_missing
+from ez_df_data_validator.handle_missing import handle_missing
 import pytest
 
 @pytest.fixture

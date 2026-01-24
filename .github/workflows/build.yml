@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest -q --cov=dsci_524_group23 --cov-report=term-missing --cov-branch
+          pytest -q --cov=ez_df_data_validator --cov-report=term-missing --cov-branch
 
       - name: Run style checks (optional)
         continue-on-error: true
