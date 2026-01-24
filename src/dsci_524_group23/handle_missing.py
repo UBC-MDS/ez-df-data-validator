@@ -105,17 +105,14 @@ def handle_missing(df, strategy='drop', columns=None):
                 df[col] = df[col].fillna(df[col].min())
 
             elif strategy == 'mode':
-                df[col] = df[col].fillna(df[col].mode())
+                df[col] = df[col].fillna(df[col].mode()[0])
 
             else:
                 raise TypeError(f'Strategy {strategy} cannot be used for dtype of column {col}.')
 
         elif pd.api.types.is_object_dtype(df[col]):
             if strategy == 'mode':
-                if df[col].mode().shape[0] == 1:
-                    df[col] = df[col].fillna(df[col].mode())
-                else:
-                    df[col] = df[col].fillna(df[col].mode().iloc[0])
+                    df[col] = df[col].fillna(df[col].mode()[0])
             else:
                 raise TypeError(f'Strategy {strategy} cannot be used for dtype of column {col}.')
 
