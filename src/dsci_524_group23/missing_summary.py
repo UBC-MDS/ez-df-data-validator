@@ -5,10 +5,9 @@ def missing_summary(data):
     """
     Generate a summary of missing values in a dataset.
 
-    This function specifies an interface for computing the number and
-    proportion of missing values for each column in the input dataset.
-    It is intended to help users assess data completeness prior to
-    further cleaning steps.
+    This function computes, for each column in a pandas DataFrame,
+    the total number of missing values and the proportion of missing
+    values relative to the number of rows.
 
     Parameters
     ----------
@@ -18,16 +17,29 @@ def missing_summary(data):
     Returns
     -------
     pandas.DataFrame
-        A summary table containing the count and percentage of missing
-        values for each column.
+        A summary table indexed by column name with:
+        - ``missing_count`` (int): number of missing values per column
+        - ``missing_pct`` (float): proportion of missing values per column
 
     Raises
     ------
     ValueError
-        If the input data is None or empty.
+        If ``data`` is None or an empty DataFrame.
     TypeError
-        If the input data is not a pandas DataFrame.
+        If ``data`` is not a pandas DataFrame.
+
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> from dsci_524_group23.missing_summary import missing_summary
+    >>> df = pd.DataFrame({"a": [1, None, 3], "b": [None, None, "x"]})
+    >>> missing_summary(df)
+            missing_count  missing_pct
+    column
+    a                   1     0.333333
+    b                   2     0.666667
     """
+
     if data is None:
         raise ValueError("`data` cannot be None.")
     if not isinstance(data, pd.DataFrame):
