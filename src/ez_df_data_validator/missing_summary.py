@@ -31,7 +31,7 @@ def missing_summary(data):
     Examples
     --------
     >>> import pandas as pd
-    >>> from dsci_524_group23.missing_summary import missing_summary
+    >>> from ez_df_data_validator.missing_summary import missing_summary
     >>> df = pd.DataFrame({"a": [1, None, 3], "b": [None, None, "x"]})
     >>> missing_summary(df)
             missing_count  missing_pct
