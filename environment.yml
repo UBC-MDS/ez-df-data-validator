@@ -1,9 +1,0 @@
-name: dsci_524_group23
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - python=3.12
-  - pip
-  - pip:
-      - -e ".[dev,docs,tests]"
