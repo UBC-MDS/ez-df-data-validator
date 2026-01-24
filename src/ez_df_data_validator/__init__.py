@@ -22,11 +22,15 @@
 # SOFTWARE.
 
 """
-DSCI_524_group23
+ez_df_data_validator
 
 A lightweight Python package providing essential data cleaning
 utilities for machine learning workflows.
 """
 
-from .find_duplicates import find_duplicates
-from .missing_summary import missing_summary
+from .schema_standardizer import standardize_schema as standardize_schema
+from .find_duplicates import find_duplicates as find_duplicates
+from .handle_missing import handle_missing as handle_missing
+from .missing_summary import missing_summary as missing_summary
+
+__version__ = "0.1.0"

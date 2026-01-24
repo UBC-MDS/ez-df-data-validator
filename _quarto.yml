@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: _site
+
+quartodoc:
+  package: ez_df_data_validator
+  sections:
+    - title: Functions
+      desc: API Reference
+      contents:
+        - standardize_schema
+        - find_duplicates
+        - handle_missing
+        - missing_summary
+
+website:
+  title: "ez_df_data_validator"
+  navbar:
+    left:
+      - text: "Reference"
+        href: reference/index.qmd

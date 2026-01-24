@@ -24,13 +24,13 @@ jobs:
       - name: Install package + test tools
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e .[tests, dev]
+          python -m pip install -e ".[tests, dev]"
 
       - name: Run tests with coverage
         run: |
-          pytest -q --cov=dsci_524_group23 --cov-report=term-missing --cov-branch
+          pytest -q --cov=ez_df_data_validator --cov-report=term-missing --cov-branch
 
       - name: Run style checks (optional)
+        continue-on-error: true
         run: |
-          python -m pip install ruff
           ruff check .

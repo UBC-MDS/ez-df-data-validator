@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from dsci_524_group23.missing_summary import missing_summary
+from ez_df_data_validator.missing_summary import missing_summary
 
 
 def test_missing_summary_basic_counts_and_pct():

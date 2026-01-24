@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pytest
 
-from dsci_524_group23.find_duplicates import find_duplicates
+from ez_df_data_validator.find_duplicates import find_duplicates
 
 
 def test_find_duplicates_success():

@@ -1,0 +1,12 @@
+# Function reference {.doc .doc-index}
+
+## Functions
+
+API Reference
+
+| | |
+| --- | --- |
+| [standardize_schema](standardize_schema.qmd#dsci_524_group23.standardize_schema) | Sanitize and standardize a DataFrames structure. |
+| [find_duplicates](find_duplicates.qmd#dsci_524_group23.find_duplicates) |  |
+| [handle_missing](handle_missing.qmd#dsci_524_group23.handle_missing) |  |
+| [missing_summary](missing_summary.qmd#dsci_524_group23.missing_summary) |  |
