@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2026-01-24T08:40:12.573Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CODE_OF_CONDUCT.html</loc>
+    <lastmod>2026-01-24T08:47:40.832Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/reference/missing_summary.html</loc>
-    <lastmod>2026-01-24T08:40:54.854Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/missing_summary.html</loc>
+    <lastmod>2026-01-24T08:48:24.717Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/reference/handle_missing.html</loc>
-    <lastmod>2026-01-24T08:40:54.848Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/handle_missing.html</loc>
+    <lastmod>2026-01-24T08:48:24.710Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/reference/index.html</loc>
-    <lastmod>2026-01-24T08:40:54.806Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/index.html</loc>
+    <lastmod>2026-01-24T08:48:24.669Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/DEVELOPMENT.html</loc>
-    <lastmod>2026-01-24T08:40:12.573Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/DEVELOPMENT.html</loc>
+    <lastmod>2026-01-24T08:47:40.833Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/CHANGELOG.html</loc>
-    <lastmod>2026-01-24T08:40:12.573Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CHANGELOG.html</loc>
+    <lastmod>2026-01-24T08:47:40.832Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/CONTRIBUTING.html</loc>
-    <lastmod>2026-01-24T08:40:12.573Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CONTRIBUTING.html</loc>
+    <lastmod>2026-01-24T08:47:40.832Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/reference/find_duplicates.html</loc>
-    <lastmod>2026-01-24T08:40:54.840Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/find_duplicates.html</loc>
+    <lastmod>2026-01-24T08:48:24.702Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/reference/standardize_schema.html</loc>
-    <lastmod>2026-01-24T08:40:54.832Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/standardize_schema.html</loc>
+    <lastmod>2026-01-24T08:48:24.694Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/DSCI_524_group23/docs/index.html</loc>
-    <lastmod>2026-01-24T08:40:12.580Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/docs/index.html</loc>
+    <lastmod>2026-01-24T08:47:40.840Z</lastmod>
   </url>
 </urlset>
