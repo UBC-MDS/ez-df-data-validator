@@ -172,7 +172,7 @@
     "href": "reference/standardize_schema.html",
     "title": "standardize_schema",
     "section": "",
-    "text": "standardize_schema(data)\nSanitize and standardize a DataFrames structure.\nThis function performs a series of cleaning steps: 1. Standardizes column headers (snake_case, no punctuation/replace with underscore). 2. Removes columns that result in duplicate names (keeping the first). 3. Removes columns containing a single unique value (constants).\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata\npandas.DataFrame\nThe raw input DataFrame to be standardized.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\npandas.DataFrame\nThe fully sanitized DataFrame.\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nTypeError\nIf the input data is not a pandas DataFrame."
+    "text": "standardize_schema(data)\nSanitize and standardize a DataFrames structure.\nThis function performs a series of cleaning steps: 1. Standardizes column headers (snake_case, no punctuation/replace with underscore). 2. Removes columns that result in duplicate names (keeping the first). 3. Removes columns containing a single unique value (constants).\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata\npandas.DataFrame\nThe raw input DataFrame to be standardized.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\npandas.DataFrame\nThe fully sanitized DataFrame.\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nTypeError\nIf the input data is not a pandas DataFrame.\n\n\n\n\n\n\n&gt;&gt;&gt; import pandas as pd\n&gt;&gt;&gt; df = pd.DataFrame({\n...     \"First Name\": [\"Alice\", \"Bob\", \"Charlie\"],\n...     \"Age\": [25, 30, 35],\n...     \"age\": [25, 30, 35],\n...     \"Constant_Column\": [1, 1, 1],\n...     \"  Special@Char$ \": [100, 200, 300]\n... })\n&gt;&gt;&gt; standardized_df = standardize_schema(df)\n&gt;&gt;&gt; standardized_df\n  first_name  age  special_char\n0      Alice   25           100\n1        Bob   30           200\n2    Charlie   35           300"
   },
   {
     "objectID": "reference/standardize_schema.html#parameters",
@@ -194,6 +194,13 @@
     "title": "standardize_schema",
     "section": "",
     "text": "Name\nType\nDescription\n\n\n\n\n\nTypeError\nIf the input data is not a pandas DataFrame."
+  },
+  {
+    "objectID": "reference/standardize_schema.html#examples",
+    "href": "reference/standardize_schema.html#examples",
+    "title": "standardize_schema",
+    "section": "",
+    "text": "&gt;&gt;&gt; import pandas as pd\n&gt;&gt;&gt; df = pd.DataFrame({\n...     \"First Name\": [\"Alice\", \"Bob\", \"Charlie\"],\n...     \"Age\": [25, 30, 35],\n...     \"age\": [25, 30, 35],\n...     \"Constant_Column\": [1, 1, 1],\n...     \"  Special@Char$ \": [100, 200, 300]\n... })\n&gt;&gt;&gt; standardized_df = standardize_schema(df)\n&gt;&gt;&gt; standardized_df\n  first_name  age  special_char\n0      Alice   25           100\n1        Bob   30           200\n2    Charlie   35           300"
   },
   {
     "objectID": "docs/index.html",
