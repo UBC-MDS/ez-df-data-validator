@@ -96,8 +96,8 @@ Workflows run on pushes and pull requests to `main`.
 
 Project documentation is automatically generated using **quartodoc** and deployed with **GitHub Pages** as part of the CI/CD workflow.
 
-You can view the latest documentation here:  
-https://UBC-MDS.github.io/ez-df-data-validator/
+You can view the full API documentation here:  
+https://ubc-mds.github.io/ez-df-data-validator/reference/
 
 
 ## Position of this package in the Python Ecosystem
