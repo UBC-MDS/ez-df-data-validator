@@ -97,8 +97,8 @@ markers = ["raises"] # Tells pytest to not raise a warning if you use @pytest.ma
 
 [tool.coverage.paths]
 source = [
-    "src/dsci_524_group23",
-    "*/site-packages/dsci_524_group23",
+    "src/ez_df_data_validator",
+    "*/site-packages/ez_df_data_validator",
 ]
 
 [tool.coverage.run]
@@ -148,7 +148,7 @@ features = [
 python = ["3.10", "3.11", "3.12", "3.13"]
 
 [tool.hatch.envs.test.scripts]
-run = "pytest {args:--cov=dsci_524_group23 --cov-report=term-missing --cov-report=xml}"
+run = "pytest {args:--cov=ez_df_data_validator --cov-report=term-missing --cov-report=xml}"
 
 #--------------- Build and preview your documentation ---------------#
 
@@ -165,7 +165,7 @@ features = [
 # hatch run docs:serve will serve them 'live' on your computer locally
 [tool.hatch.envs.docs.scripts]
 build = ["sphinx-build {args:-W -b html docs docs/_build}"]
-serve = ["sphinx-autobuild docs --watch src/dsci_524_group23 {args:-b html docs/_build/serve}"]
+serve = ["sphinx-autobuild docs --watch src/ez_df_data_validator {args:-b html docs/_build/serve}"]
 
 
 
