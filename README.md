@@ -19,6 +19,9 @@ Install for regular use:
 pip install ez-df-data-validator
 ```
 
+### Requirements
+- Python 3.10+
+
 ### Example usage
 
 ```python
