@@ -17,6 +17,10 @@ def test_df():
 
 
 def test_handle_missing_mean(test_df):
+    """
+    Test that missing values in a numeric column are replaced
+    with the arithmetic mean of the non-missing values.
+    """
     res_mean = handle_missing(test_df.copy(), strategy='mean', columns=['A'])
     expected_mean = test_df.copy()
     expected_mean.loc[2, 'A'] = 2.75
@@ -24,6 +28,10 @@ def test_handle_missing_mean(test_df):
 
 
 def test_handle_missing_mode(test_df):
+    """
+    Test that missing values in a categorical column are replaced
+    with the most frequent value (mode).
+    """
     res_mode = handle_missing(test_df.copy(), strategy='mode', columns=['B'])
     expected_mode = test_df.copy()
     expected_mode.loc[2, 'B'] = 'x'
@@ -31,17 +39,29 @@ def test_handle_missing_mode(test_df):
 
 
 def test_handle_missing_drop(test_df):
+    """
+    Test that the 'drop' strategy removes rows containing any
+    NaN values from the DataFrame.
+    """
     res_drop = handle_missing(test_df.copy(), strategy='drop')
     assert len(res_drop) == 4
     assert 2 not in res_drop.index
 
 
 def test_handle_missing_invalid_strategy(test_df):
+    """
+    Verify that a ValueError is raised when an unsupported
+    strategy string is provided.
+    """
     with pytest.raises(ValueError):
         handle_missing(test_df, strategy='magic', columns=['A'])
 
 
 def test_handle_missing_invalid_dtype(test_df):
+    """
+    Verify that a TypeError is raised when attempting to calculate
+    a mode on unsupported dtypes (i.e. datetime).
+    """
     df_datetime = test_df.copy()
     df_datetime['E'] = [pd.to_datetime('2025-05-05'), pd.to_datetime('2026-05-05'), np.nan, np.nan, np.nan]
     with pytest.raises(TypeError):
@@ -49,6 +69,10 @@ def test_handle_missing_invalid_dtype(test_df):
 
 
 def test_handle_missing_invalid_input_types(test_df):
+    """
+    Ensure strict type checking for function arguments (columns and strategy),
+    raising TypeError for non-conforming inputs.
+    """
     # Test invalid columns type
     with pytest.raises(TypeError, match='columns must be a list.'):
         handle_missing(test_df, strategy='mean', columns=5)
@@ -58,19 +82,35 @@ def test_handle_missing_invalid_input_types(test_df):
         handle_missing(test_df, strategy=4)
 
 def test_handle_missing_no_na(test_df):
+    """
+    Confirm that the function returns an unchanged DataFrame
+    if no missing values are present in the target columns.
+    """
     cd_only = test_df[['C', 'D']].copy()
     res = handle_missing(cd_only, strategy='mean', columns=['C', 'D'])
     assert_frame_equal(res, cd_only)
 
 def test_handle_missing_all_columns_default(test_df):
+    """
+    Test that when 'columns' is None, the function identifies and
+    imputes all columns containing missing values.
+    """
     res = handle_missing(test_df, strategy='mode', columns=None)
     assert res.isna().sum().sum() == 0
 
 def test_handle_missing_non_df(test_df):
+    """
+    Ensure the function rejects non-DataFrame inputs (i.e. pandas Series)
+    with a TypeError.
+    """
     with pytest.raises(TypeError, match='df must be a pandas DataFrame.'):
         handle_missing(test_df['C'], strategy='mean')
 
 def test_handle_missing_independent_column(test_df):
+    """
+    Verify that imputation values are calculated independently for each column
+    (e.g., Column A's mean does not affect Column B's imputation).
+    """
     df = pd.DataFrame({
         'A': [10, 20, np.nan],  # mean = 15
         'B': [1, 2, np.nan]  # mean = 1.5
@@ -80,6 +120,10 @@ def test_handle_missing_independent_column(test_df):
     assert res.loc[2, 'B'] == 1.5
 
 def test_handle_missing_all_nan_column_raises_error():
+    """
+    Verify that attempting to impute a column consisting entirely
+    of NaNs raises a ValueError, as statistical measures cannot be calculated.
+    """
     df = pd.DataFrame({'A': [np.nan, np.nan, np.nan]})
     with pytest.raises(ValueError, match="Column A only contains NaN."):
         handle_missing(df, strategy='mean', columns=['A'])
