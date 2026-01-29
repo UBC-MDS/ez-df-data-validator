@@ -1,3 +1,5 @@
+src/ez_df_data_validator/__version__.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
