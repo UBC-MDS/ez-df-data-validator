@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   test-and-build-docs:
@@ -36,7 +37,13 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest -q --cov=ez_df_data_validator --cov-report=term-missing --cov-branch
+          pytest -q --cov=ez_df_data_validator --cov-report=term-missing --cov-branch --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: UBC-MDS/ez-df-data-validator
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -47,3 +54,18 @@ jobs:
 
       - name: Render Docs (Dry Run)
         uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Deploy to Netlify
+        if: github.event_name == 'pull_request'
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: "./_site"
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
