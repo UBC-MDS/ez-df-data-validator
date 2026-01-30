@@ -14,6 +14,8 @@ This package provides a lightweight and user friendly toolkit for common data cl
 
 Install for regular use:
 
+Create a new folder using `mkdir test_ez` and run the below command:
+
 ```bash
 pip install -i https://test.pypi.org/simple/ ez-df-data-validator
 ```
@@ -22,6 +24,8 @@ pip install -i https://test.pypi.org/simple/ ez-df-data-validator
 - Python 3.10+
 
 ### Example usage
+
+Within the `test_ez` folder, create a test file using `touch test_package.py`. Copy the below contents into this newly created file.
 
 ```python
 import pandas as pd
@@ -54,6 +58,18 @@ print(missing_summary(df))
 df_clean = handle_missing(df, strategy="drop")
 ```
 
+Run the script with `python test_package.py`. It should show an output similar to:
+
+```
+$ python test_package.py
+Found 1 duplicate rows
+        missing_count  missing_pct
+column                            
+age                 1         0.25
+income              0         0.00
+city                0         0.00
+
+```
 
 ## Functions
 
