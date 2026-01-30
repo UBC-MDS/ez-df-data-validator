@@ -17,5 +17,7 @@ website:
   title: "ez_df_data_validator"
   navbar:
     left:
+      - text: "Home"
+        href: index.qmd
       - text: "Reference"
         href: reference/index.qmd
