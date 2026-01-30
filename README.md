@@ -2,7 +2,7 @@
 
 |        |        |
 |--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/badge/TestPyPI-v0.1.2-blue)](https://test.pypi.org/project/ez-df-data-validator/) |
+| Package | [![TestPyPI](https://img.shields.io/pypi/v/ez-df-data-validator?label=TestPyPI&pypiBaseUrl=https%3A%2F%2Ftest.pypi.org&color=blue)](https://test.pypi.org/project/ez-df-data-validator/) |
 
 
 ## Summary
