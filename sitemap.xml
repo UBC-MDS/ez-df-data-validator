@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://UBC-MDS.github.io/ez-df-data-validator/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2026-01-29T00:21:25.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/missing_summary.html</loc>
-    <lastmod>2026-01-29T00:22:10.912Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/handle_missing.html</loc>
-    <lastmod>2026-01-29T00:22:10.906Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/index.html</loc>
-    <lastmod>2026-01-29T00:22:10.864Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/DEVELOPMENT.html</loc>
-    <lastmod>2026-01-29T00:21:25.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CHANGELOG.html</loc>
-    <lastmod>2026-01-29T00:21:25.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CONTRIBUTING.html</loc>
-    <lastmod>2026-01-29T00:21:25.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/find_duplicates.html</loc>
-    <lastmod>2026-01-29T00:22:10.898Z</lastmod>
+    <lastmod>2026-01-30T21:42:38.862Z</lastmod>
   </url>
   <url>
     <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/standardize_schema.html</loc>
-    <lastmod>2026-01-29T00:22:10.890Z</lastmod>
+    <lastmod>2026-01-30T21:43:16.546Z</lastmod>
   </url>
   <url>
-    <loc>https://UBC-MDS.github.io/ez-df-data-validator/docs/index.html</loc>
-    <lastmod>2026-01-29T00:21:25.295Z</lastmod>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/find_duplicates.html</loc>
+    <lastmod>2026-01-30T21:43:16.554Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/index.html</loc>
+    <lastmod>2026-01-30T21:42:38.863Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/DEVELOPMENT.html</loc>
+    <lastmod>2026-01-30T21:42:38.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CHANGELOG.html</loc>
+    <lastmod>2026-01-30T21:42:38.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/CONTRIBUTING.html</loc>
+    <lastmod>2026-01-30T21:42:38.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/index.html</loc>
+    <lastmod>2026-01-30T21:43:16.519Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/handle_missing.html</loc>
+    <lastmod>2026-01-30T21:43:16.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://UBC-MDS.github.io/ez-df-data-validator/reference/missing_summary.html</loc>
+    <lastmod>2026-01-30T21:43:16.568Z</lastmod>
   </url>
 </urlset>
