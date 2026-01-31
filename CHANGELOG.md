@@ -5,45 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.4] - 2026-01-31
+## [Unreleased]
+
 ## [Unreleased]
 
 ### Added
-- Tools & infrastructure reflection page added to documentation website (`tools_infrastructure.qmd`) and linked in navbar.  
-- Example output added to tutorial / vignette for clearer function usage.  
-- Additional entries added to the `CHANGELOG.md` file to improve release tracking.  
-- Docstrings added to unit tests, including:
-  - `test_missing_summary`
-  - `test_handle_missing`
-  - other test functions for improved documentation clarity.
+- Tools & infrastructure reflection page added to documentation website (`tools_infrastructure.qmd`) and linked in the navbar ([#86](https://github.com/UBC-MDS/ez-df-data-validator/issues/86)).
+- Example output added to the tutorial for clearer function usage.
+- Docstrings added to core unit tests to improve documentation clarity ([#78](https://github.com/UBC-MDS/ez-df-data-validator/issues/78)).
+- Additional CHANGELOG entries to improve release tracking ([#99](https://github.com/UBC-MDS/ez-df-data-validator/issues/99)).
 
 ### Changed
-- README badges updated to use **dynamic versioning**.  
-- `publish.yml` modified to support dynamic semantic versioning for releases.  
-- `pyproject.toml` updated for dynamic versioning and TestPyPI release workflow.  
-- Documentation structure cleaned and improved (README, examples, batch fixes).  
-- Build workflow updated to generate a **preview deployment** for the docs website.  
-- Landing page of documentation website improved and fixed.  
+- Documentation structure and layout improved.
+- README badges updated to use dynamic versioning.
+- `publish.yml` and `pyproject.toml` updated to support dynamic versioning and TestPyPI publishing.
+- Build workflow updated to generate documentation preview deployments ([#94](https://github.com/UBC-MDS/ez-df-data-validator/issues/94)).
 
 ### Fixed
-- Fixed badge rendering in README.  
-- Fixed documentation website landing page layout.  
-- Removed unnecessary Quarto-generated files from the repository.  
+- Fixed missing output for example code in the README ([#83](https://github.com/UBC-MDS/ez-df-data-validator/issues/83), [#92](https://github.com/UBC-MDS/ez-df-data-validator/pull/92)).
+- Fixed documentation landing page layout.
+- Removed unnecessary generated files from the repository ([#85](https://github.com/UBC-MDS/ez-df-data-validator/issues/85)).
 
 ### CI / Infrastructure
-- Dev → main branch sync workflow completed.  
-- Development branch merged into main following staging workflow.  
 - GitHub Actions workflows updated to:
-  - run `pytest` with coverage  
-  - run `ruff` lint checks  
-  - build Quartodoc reference  
-  - render Quarto documentation  
-  - deploy documentation previews  
-  - publish package to TestPyPI via automated pipeline  
+  - run `pytest` with coverage
+  - run `ruff` lint checks
+  - build Quartodoc reference
+  - render Quarto documentation
+  - deploy documentation previews
+  - publish package to TestPyPI via automated pipeline
+- Development → main branch sync completed following staging workflow.
 
-
-### Fixed
-- Fixed missing output for example code in the README ([#83](https://github.com/UBC-MDS/ez-df-data-validator/issues/83), [#92](https://github.com/UBC-MDS/ez-df-data-validator/pull/92))
 
 
 ## [0.0.3] - 2026-01-24
