@@ -18,6 +18,9 @@ dynamic = ["version"]
 description = "Group 23 Project(MDS 524) -  Data Cleaner & Validator for Pandas DataFrames"
 authors = [
     { name = "Nishanth Kumarasamy", email = "nishanth.kumarasamy02@gmail.com" },
+    { name = "Gaurang Ahuja", email = "nishanth.kumarasamy02@gmail.com" },
+    { name = "Johnson Leung", email = "nishanth.kumarasamy02@gmail.com" },
+    { name = "Siting Wang", email = "nishanth.kumarasamy02@gmail.com" },
 ]
 license = "MIT"
 requires-python = ">= 3.10" # Adjust based on the minimum version of Python that you support

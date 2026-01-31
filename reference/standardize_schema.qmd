@@ -28,3 +28,23 @@ This function performs a series of cleaning steps:
 | Name   | Type      | Description                                    |
 |--------|-----------|------------------------------------------------|
 |        | TypeError | If the input `data` is not a pandas DataFrame. |
+
+
+#### Examples {.doc-section .doc-section-examples}
+
+```python
+>>> import pandas as pd
+    >>> df = pd.DataFrame({
+    ...     "First Name": ["Alice", "Bob", "Charlie"],
+    ...     "Age": [25, 30, 35],
+    ...     "age": [25, 30, 35],
+    ...     "Constant_Column": [1, 1, 1],
+    ...     "  Special@Char$ ": [100, 200, 300]
+    ... })
+    >>> standardized_df = standardize_schema(df)
+    >>> standardized_df
+      first_name  age  special_char
+    0      Alice   25           100
+    1        Bob   30           200
+    2    Charlie   35           300
+```
