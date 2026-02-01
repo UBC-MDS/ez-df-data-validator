@@ -35,5 +35,5 @@ from .missing_summary import missing_summary as missing_summary
 
 try:
     from .__version__ import __version__
-except ImportError:
+except ImportError:  # pragma: no cover
     __version__ = "unknown"
